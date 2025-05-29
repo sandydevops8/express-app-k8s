@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: san-express-app-service
+spec:
+  type: LoadBalancer   # Tells EKS to create an ELB or NLB
+  selector:
+    app: san-express-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
